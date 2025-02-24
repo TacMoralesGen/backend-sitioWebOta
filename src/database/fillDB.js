@@ -8,19 +8,9 @@ const insertData = async ({ reservations, reservationCabins, cabins }) => {
 		await Cabin.deleteMany({});
 		await Reservation.deleteMany({});
 		await ReservationCabin.deleteMany({});
-
 		const options = { ordered: true };
-
 		const reservas = await Reservation.insertMany(reservations, options);
-		// console.log(`${reservas} reservas creadas`);
-
-		// const reservasCabanas = await ReservationCabin.insertMany(reservationCabins, options);
-		// console.log(`${reservasCabanas.insertedCount} reservasCabanas creadas`);
-
 		const cabanas = await Cabin.insertMany(cabins, options);
-		// console.log(`${cabanas} cabanas creadas`);
-
-		console.log(`${reservationCabins} reservationCabins`);
 		for (const reservationCabin of reservationCabins) {
 			const cabinId = cabanas.find(cabana => reservationCabin.cabinId = cabana.number)._id
       const reservationOrder = reservationCabin.reservationId
@@ -28,11 +18,7 @@ const insertData = async ({ reservations, reservationCabins, cabins }) => {
 			reservationCabin.cabinId = cabinId;
 			reservationCabin.reservationId = reservationId;
 		}
-		console.log(`${reservationCabins} reservationCabins`);
-
-    const reservasCabanas = await ReservationCabin.insertMany(reservationCabins, options);
-		console.log(`${reservasCabanas} reservasCabanas creadas`);
-
+    await ReservationCabin.insertMany(reservationCabins, options);
 	} catch (error) {
 		console.error("Error al insertar datos iniciales:", error);
 	}
