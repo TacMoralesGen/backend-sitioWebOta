@@ -18,6 +18,7 @@ router.post("/payment", createNewPayment);
 // Obtener todos los payment
 router.get("/payments", getAllPayments);
 
+// Crear nuevo reservation
 router.post("/reservation", createNewReservation);
 router.get("/reservations", getAllReservations);
 router.get("/reservations/fechas", getReservedDates);
