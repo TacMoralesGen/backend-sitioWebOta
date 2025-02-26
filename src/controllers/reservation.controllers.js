@@ -50,7 +50,7 @@ async function createNewReservation (req, res) {
         const newReservationsCabins = await ReservationCabin.insertMany(reservationsCabins, { ordered: true });
 
         res.status(201).json({
-            message: status,
+            message: "Se entregan las reservas con las reserva de cabañas",
             reservation: {...newReservation, newReservationsCabins}
         });
     } catch (error) {
@@ -63,32 +63,24 @@ async function createNewReservation (req, res) {
 
 async function getAllReservations (req, res) {
     try {
-        const reservations = await Reservation.find();
+        // Definir el pipeline de agregación con $lookup para unir orders con products
+        const joinPipeline = [
+            {
+                $lookup: {
+                    from: "reservationCabins",  // Colección destino a unir
+                    localField: "product_id",   // Campo de la colección orders
+                    foreignField: "_id",        // Campo de la colección products
+                    as: "orderdetails",         // Nombre del array de salida que contendrá los datos unidos
+                },
+            },
+        ];
+        const results = await Reservation.aggregate(joinPipeline).toArray();
         res.status(200).json({
             reservations
         });
     } catch (error) {
         res.status(500).json({
             message: "Hubo un error al obtener las reservas",
-            error: error.message
-        });
-    }
-};
-
-async function getReservedDates (req, res) {
-    try {
-        // Filtrar solo reservas confirmadas y devolver solo checkinDate y checkoutDate
-        const reservations = await Reservation.find(
-            { statusReservation: "Confirmada" },
-            "checkinDate checkoutDate"
-        );
-
-        res.status(200).json({
-            reservedDates: reservations
-        });
-    } catch (error) {
-        res.status(500).json({
-            message: "Hubo un error al obtener las fechas reservadas",
             error: error.message
         });
     }
