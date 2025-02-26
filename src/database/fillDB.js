@@ -24,22 +24,22 @@ const insertData = async ({ reservations, reservationCabins, cabins }) => {
 	}
 };
 
-const getIdCabinByNum = async (num) => {
-	try {
-		const cabin = await Cabin.find({ number: num });
-		return cabin._id;
-	} catch (error) {
-		console.error("Error al insertar datos iniciales:", error);
-	}
-};
+// const getIdCabinByNum = async (num) => {
+// 	try {
+// 		const cabin = await Cabin.find({ number: num });
+// 		return cabin._id;
+// 	} catch (error) {
+// 		console.error("Error al insertar datos iniciales:", error);
+// 	}
+// };
 
-const getIdReservationByOrder = async (order) => {
-	try {
-		const cabin = await Cabin.find({ number: num });
-		return cabin._id;
-	} catch (error) {
-		console.error("Error al insertar datos iniciales:", error);
-	}
-};
+// const getIdReservationByOrder = async (order) => {
+// 	try {
+// 		const cabin = await Cabin.find({ number: num });
+// 		return cabin._id;
+// 	} catch (error) {
+// 		console.error("Error al insertar datos iniciales:", error);
+// 	}
+// };
 
 module.exports = insertData;

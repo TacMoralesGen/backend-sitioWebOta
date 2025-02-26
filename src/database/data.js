@@ -162,7 +162,6 @@ const reservationCabins = [
 		priceHotTub: 90_000,
 	},
 ];
-
 const reservations = [
 	{
 		documentTypeClient: "RUT",
@@ -308,7 +307,6 @@ const reservations = [
 		notes: "",
 	},
 ];
-
 const cabins = [
 	{
 		typeName: "Tiny Cabin",
@@ -331,6 +329,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -353,6 +352,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -375,6 +375,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -397,6 +398,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -419,6 +421,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -441,6 +444,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -463,6 +467,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -485,6 +490,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -507,6 +513,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Tiny Cabin",
@@ -529,6 +536,7 @@ const cabins = [
     ],
 		size: 25,
 		bedType: "1 Cama Queen + 2 Literas",
+		img: "tinyCabin.jpg"
 	},
 	{
 		typeName: "Couple Room",
@@ -550,6 +558,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -571,6 +580,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -592,6 +602,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -613,6 +624,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -634,6 +646,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -655,6 +668,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -676,6 +690,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -697,6 +712,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -718,6 +734,7 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 	{
 		typeName: "Couple Room",
@@ -739,9 +756,8 @@ const cabins = [
     ],
 		size: 14,
 		bedType: "1 Cama Queen",
+		img: "coupleRoom.avif"
 	},
 ];
-
 const data = {reservationCabins, reservations, cabins}
-
 module.exports = data;
