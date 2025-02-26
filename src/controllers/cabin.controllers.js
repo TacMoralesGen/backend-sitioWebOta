@@ -2,16 +2,14 @@ const Cabin = require("../models/cabin.model");
 
 const createNewCabin = async (req, res) => {
     try {
-
         const newCabin = await Cabin.create(req.body);
-
         res.status(201).json({
-            message: "Se creo con exito un nuevo tipo de cabina",
+            message: "Se creo con exito una nueva cabaña",
             cabin: newCabin
         });
     } catch (error) {
         res.status(500).json({
-            message: "Hubo un error al crear la cabina",
+            message: "Hubo un error al crear la cabaña",
             error: error.message
         });
     }
@@ -25,7 +23,7 @@ const getAllCabins = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({
-            message: "Hubo un error al obtener las cabinas",
+            message: "Hubo un error al obtener las cabaña",
             error: error.message
         });
     }
