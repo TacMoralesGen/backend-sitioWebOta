@@ -11,6 +11,10 @@ const reservationSchema = new Schema({
     type: String,
     required: true,
   },
+  numReservation: {
+    type: Number,
+    required: true,
+  },
   nameClient: {
     type: String,
     required: true,

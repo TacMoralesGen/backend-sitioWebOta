@@ -1,12 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const { createNewContact, getAllContacts } = require("../controllers/contacto.controllers");
-const { createNewReservationCabin, getAllReservationCabins } = require("../controllers/reservationCabin.controllers")
-const { createNewPayment, getAllPayments } = require("../controllers/payment.controllers")
-const { createNewReservation, getAllReservations, getReservedDates } = require ("../controllers/reservation.controllers")
-const { createNewCabin, getAllCabins } = require ("../controllers/cabin.controllers");
-const {createNewAdminCabin} = require("../controllers/adminCabin.controllers");
+const { createNewReservation, getAllReservations } = require ("../controllers/reservation.controllers")
+const { createNewCabin, getAllCabins, putCabin } = require ("../controllers/cabin.controllers");
 
 // // Crear nuevo contacto
 // router.post("/contacto", createNewContact);
@@ -28,6 +24,8 @@ router.get("/reservations", getAllReservations);
 
 // CREA una nueva Cabin
 router.post("/cabin", createNewCabin);
+// ACTUALIZA una Cabin
+router.patch("/cabin", putCabin);
 // OBTIENE todas las Cabin
 router.get("/cabins", getAllCabins); //_> se puede obtener la disponibilidad
 
