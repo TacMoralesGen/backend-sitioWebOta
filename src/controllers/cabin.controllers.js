@@ -2,6 +2,7 @@ const Cabin = require("../models/cabin.model");
 
 const createNewCabin = async (req, res) => {
 	try {
+        console.log(req.body)
 		const newCabin = await Cabin.create(req.body);
 
 		res.status(201).json({
@@ -9,6 +10,7 @@ const createNewCabin = async (req, res) => {
 			cabin: newCabin,
 		});
 	} catch (error) {
+        console.error(error.message)
 		res.status(500).json({
 			message: "Hubo un error al crear la cabina",
 			error: error.message,
