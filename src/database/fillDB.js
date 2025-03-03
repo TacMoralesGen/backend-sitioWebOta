@@ -5,6 +5,11 @@ const ReservationCabin = require("../models/reservationCabin.model");
 // Crear una nueva cabaña
 const insertData = async ({ reservations, reservationCabins, cabins }) => {
 	try {
+		reservations = reservations.map((reservation, index) => {
+			let newNumReservation = index + 1; 
+			return {...reservation, numReservation: newNumReservation}
+		})
+		// console.log(reservations)
 		await Cabin.deleteMany({});
 		await Reservation.deleteMany({});
 		await ReservationCabin.deleteMany({});
@@ -12,7 +17,7 @@ const insertData = async ({ reservations, reservationCabins, cabins }) => {
 		const reservas = await Reservation.insertMany(reservations, options);
 		const cabanas = await Cabin.insertMany(cabins, options);
 		for (const reservationCabin of reservationCabins) {
-			const cabinId = cabanas.find(cabana => reservationCabin.cabinId = cabana.number)._id
+			const cabinId = cabanas.find(cabana => reservationCabin.cabinId == cabana.number)._id
       const reservationOrder = reservationCabin.reservationId
 			const reservationId = reservas[reservationOrder-1]._id
 			reservationCabin.cabinId = cabinId;
@@ -24,22 +29,22 @@ const insertData = async ({ reservations, reservationCabins, cabins }) => {
 	}
 };
 
-const getIdCabinByNum = async (num) => {
-	try {
-		const cabin = await Cabin.find({ number: num });
-		return cabin._id;
-	} catch (error) {
-		console.error("Error al insertar datos iniciales:", error);
-	}
-};
+// const getIdCabinByNum = async (num) => {
+// 	try {
+// 		const cabin = await Cabin.find({ number: num });
+// 		return cabin._id;
+// 	} catch (error) {
+// 		console.error("Error al insertar datos iniciales:", error);
+// 	}
+// };
 
-const getIdReservationByOrder = async (order) => {
-	try {
-		const cabin = await Cabin.find({ number: num });
-		return cabin._id;
-	} catch (error) {
-		console.error("Error al insertar datos iniciales:", error);
-	}
-};
+// const getIdReservationByOrder = async (order) => {
+// 	try {
+// 		const cabin = await Cabin.find({ number: num });
+// 		return cabin._id;
+// 	} catch (error) {
+// 		console.error("Error al insertar datos iniciales:", error);
+// 	}
+// };
 
 module.exports = insertData;

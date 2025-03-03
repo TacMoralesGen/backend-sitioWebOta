@@ -67,7 +67,9 @@ const cabinSchema = new Schema({
     },
     bedType: {
       type: String,
-      required: true,
+    },
+    img: {
+      type: String,
     }
   }, { timestamps: true });
 
