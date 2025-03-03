@@ -5,13 +5,14 @@ meta {
 }
 
 post {
-  url: http://localhost:8000/api/reservation
+  url: http://localhost:7000/api/reservation
   body: json
   auth: none
 }
 
 body:json {
   {
+  "reservation": {
       "numReservation": 12,
       "documentTypeClient": "RUT",
       "documentNumberClient": "19.201.301-1",
@@ -45,5 +46,7 @@ body:json {
           }
       ],
       "terms": true
+  },
+  "reservationRange": ["2025-02-08T03:00:00.000Z", "2025-02-09T03:00:00.000Z"]
   }
 }

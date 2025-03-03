@@ -27,13 +27,13 @@ function insertDate(sortedDates, newDate) {
 			right = mid;
 		}
 	}
-	sortedDates.splice(left, 0, newDate);
+	return sortedDates.splice(left, 0, newDate);
 }
 
 // CREA nueva reserva. TAMBIEN CREA las reservationCabin asociadas Y AGREGA LA/S FECHA/S a cabin.reservedDates en la/s cabana/s asociada/s
 async function createNewReservation(req, res) {
 	try {
-		const { reservation, reservationRange: reservedDatesToInsert } = req.body;
+		const { reservation, reservationRange } = req.body;
     let { reservationCabins } = reservation;
 		const newReservation = await Reservation.create(reservation);
     const reservationId = newReservation._id
@@ -43,8 +43,8 @@ async function createNewReservation(req, res) {
 		reservationCabins = await Promise.all(reservationCabins.map(async (reservationCabin) => {
 			let { id: cabinId, reservedDates } = await cabinByNumber(reservationCabin.cabinNumber);
       // console.log("reservedDates", reservedDates)
-			for (const dateToInsert of reservedDatesToInsert) {
-				reservedDates.length > 0? insertDate(reservedDates, dateToInsert) : [dateToInsert];
+			for (const dateToInsert of reservationRange) {
+				reservedDates = reservedDates.length > 0? insertDate(reservedDates, dateToInsert) : [dateToInsert];
 			}
       console.log("reservedDates before", reservedDates);
 
