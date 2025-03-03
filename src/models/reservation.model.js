@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
-
 const reservationSchema = new Schema({
   documentTypeClient: {
     type: String,
@@ -9,6 +8,10 @@ const reservationSchema = new Schema({
   },
   documentNumberClient: {
     type: String,
+    required: true,
+  },
+  numReservation: {
+    type: Number,
     required: true,
   },
   nameClient: {

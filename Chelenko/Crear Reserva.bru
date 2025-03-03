@@ -1,0 +1,49 @@
+meta {
+  name: Crear Reserva
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:8000/api/reservation
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "numReservation": 12,
+      "documentTypeClient": "RUT",
+      "documentNumberClient": "19.201.301-1",
+      "nameClient": "asd",
+      "countryOfResidence": "argentina",
+      "phoneClient": "9999999999",
+      "emailClient": "asd@asd.cl",
+      "checkinDate": "2025-02-08T03:00:00.000Z",
+      "checkoutDate": "2025-02-10T03:00:00.000Z",
+      "statusReservation": "Pendiente",
+      "totalPrice": 409536,
+      "notes": "asd",
+      "reservationCabins": [
+          {
+              "cabinNumber": 203,
+              "adults": 1,
+              "childrens": 0,
+              "mainGuest": "Tac",
+              "datesHotTub": [],
+              "priceCabin": 321800,
+              "priceHotTub": 0
+          },
+          {
+              "cabinNumber": 101,
+              "adults": 1,
+              "childrens": 0,
+              "mainGuest": "Chiu",
+              "datesHotTub": [],
+              "priceCabin": 183800,
+              "priceHotTub": 0
+          }
+      ],
+      "terms": true
+  }
+}
